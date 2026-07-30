@@ -9,6 +9,9 @@
   var elModal   = document.getElementById('modal');
   var elModalBody = document.getElementById('modalBody');
   var elTheme   = document.getElementById('themeBtn');
+  var elMeta    = document.getElementById('resultMeta');
+  var elTop     = document.getElementById('toTop');
+  var elControls = document.getElementById('controls');
 
   var TYPE_LABEL = { tablet: 'أجهزة التابلت', laptop: 'أجهزة اللابتوب' };
   var TYPE_ORDER = ['tablet', 'laptop'];
@@ -74,12 +77,12 @@
     return '' +
       '<article class="card" data-slug="' + esc(d.slug) + '">' +
         '<div class="card-media" data-open>' +
-          '<div class="badges">' + badges + '</div>' +
           '<span class="brand-tag">' + esc(d.brand) + '</span>' +
           '<img class="' + (d.solidBg ? 'solid' : '') + '" src="' + esc(imgSrc(d)) +
-            '" alt="' + esc(d.name) + '" loading="lazy">' +
+            '" alt="' + esc(d.name) + '" loading="lazy" decoding="async">' +
         '</div>' +
         '<div class="card-body">' +
+          '<div class="badges">' + badges + '</div>' +
           '<h3 data-open>' + esc(d.name) + '</h3>' +
           '<p class="sub">' + esc(d.nameAr) + '</p>' +
           '<div class="tags">' + tags + '</div>' +
@@ -160,6 +163,13 @@
 
     elResults.innerHTML = html;
     elEmpty.hidden = list.length > 0;
+
+    var isFiltered = state.type !== 'all' || state.tier !== 'all' || !!state.q.trim();
+    elMeta.innerHTML = !list.length
+      ? ''
+      : (isFiltered
+          ? 'عرض <b>' + list.length + '</b> من أصل <b>' + DEVICES.length + '</b> جهاز'
+          : 'كل الأجهزة — <b>' + DEVICES.length + '</b> جهاز');
   }
 
   function openModal(slug) {
@@ -266,6 +276,35 @@
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !elModal.hidden) closeModal();
+  });
+
+  if (window.IntersectionObserver) {
+    var sentinel = document.createElement('div');
+    sentinel.setAttribute('aria-hidden', 'true');
+    sentinel.style.cssText = 'height:1px;margin-block-end:-1px;';
+    elControls.parentNode.insertBefore(sentinel, elControls);
+    new IntersectionObserver(function (entries) {
+      elControls.classList.toggle('is-stuck', !entries[0].isIntersecting);
+    }).observe(sentinel);
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    var apply = function () {
+      var y = window.scrollY || document.documentElement.scrollTop;
+      elTop.classList.toggle('is-on', y > 700);
+      ticking = false;
+    };
+    if (window.requestAnimationFrame) window.requestAnimationFrame(apply);
+    else apply();
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  elTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   document.getElementById('updated').textContent = PRICES_UPDATED;
