@@ -2,10 +2,17 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>توصيات الأجهزة الدراسية — جامعة القصيم</title>
 <meta name="description" content="دليل مختار لأجهزة التابلت واللابتوب المناسبة للدراسة، مقسّمة على ثلاث فئات سعرية، مع رابط شراء مباشر من المتجر الرسمي.">
+<meta name="theme-color" content="#f5f7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080a12" media="(prefers-color-scheme: dark)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
+
 <script>(function () {
   try {
     var t = localStorage.getItem('qu-devices-theme');
@@ -19,12 +26,12 @@
 </head>
 <body>
 
-<div class="glow" aria-hidden="true"></div>
+<div class="bg-deco" aria-hidden="true"></div>
 
 <header class="hero">
   <div class="wrap hero-inner">
     <div class="hero-text">
-      <p class="eyebrow">جامعة القصيم · جميع التخصصات</p>
+      <p class="eyebrow">جامعة القصيم جميع التخصصات</p>
       <h1>توصيات<br><span class="grad">الأجهزة الدراسية</span></h1>
       <p class="lede">
         مجموعة مختارة من أجهزة التابلت واللابتوب، مرتّبة على ثلاث فئات حسب الميزانية.
@@ -38,49 +45,55 @@
       </div>
     </div>
     <div class="hero-art">
-      <img src="assets/img/cover.png" alt="" loading="eager">
+      <img src="assets/img/cover.png" alt="" loading="eager" fetchpriority="high">
     </div>
   </div>
 </header>
 
-<nav class="controls" id="controls">
-  <div class="wrap">
-    <div class="controls-row">
+<nav class="controls" id="controls" aria-label="فلترة الأجهزة">
+  <div class="wrap controls-grid">
+    <div class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" id="q" placeholder="ابحث باسم الجهاز أو الماركة…" autocomplete="off" aria-label="بحث">
+    </div>
+
+    <button class="theme-btn" id="themeBtn" type="button" aria-pressed="false">
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 1.8v2.4M12 19.8v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M1.8 12h2.4M19.8 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/>
+      </svg>
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a6.8 6.8 0 0 0 11 11z"/>
+      </svg>
+      <span class="theme-label">وضع صباحي</span>
+    </button>
+
+    <div class="filter-rail">
       <div class="seg" role="tablist" aria-label="نوع الجهاز">
         <button class="seg-btn is-on" data-type="all"    role="tab" aria-selected="true">الكل</button>
         <button class="seg-btn"       data-type="tablet" role="tab" aria-selected="false">تابلت</button>
         <button class="seg-btn"       data-type="laptop" role="tab" aria-selected="false">لابتوب</button>
       </div>
 
-      <div class="search">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        <input type="search" id="q" placeholder="ابحث باسم الجهاز أو الماركة…" autocomplete="off" aria-label="بحث">
+      <span class="rail-sep" aria-hidden="true"></span>
+
+      <div class="chips" role="group" aria-label="الفئة">
+        <button class="chip is-on" data-tier="all">كل الفئات</button>
+        <button class="chip chip-eco"  data-tier="eco">الفئة الاقتصادية</button>
+        <button class="chip chip-mid"  data-tier="mid">الفئة المتوسطة</button>
+        <button class="chip chip-high" data-tier="high">الفئة العليا</button>
       </div>
-
-      <button class="theme-btn" id="themeBtn" type="button" aria-pressed="false">
-        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="4.2"/>
-          <path d="M12 1.8v2.4M12 19.8v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M1.8 12h2.4M19.8 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/>
-        </svg>
-        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a6.8 6.8 0 0 0 11 11z"/>
-        </svg>
-        <span class="theme-label">وضع صباحي</span>
-      </button>
-    </div>
-
-    <div class="chips" role="group" aria-label="الفئة">
-      <button class="chip is-on" data-tier="all">كل الفئات</button>
-      <button class="chip chip-eco"  data-tier="eco">الفئة الاقتصادية</button>
-      <button class="chip chip-mid"  data-tier="mid">الفئة المتوسطة</button>
-      <button class="chip chip-high" data-tier="high">الفئة العليا</button>
     </div>
   </div>
 </nav>
 
 <main class="wrap" id="main">
+  <p class="result-meta" id="resultMeta" role="status" aria-live="polite"></p>
   <div id="results"></div>
-  <p class="empty" id="empty" hidden>ما لقينا أي جهاز يطابق بحثك.</p>
+  <p class="empty" id="empty" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    ما لقينا أي جهاز يطابق بحثك.
+  </p>
 </main>
 
 <footer class="footer">
@@ -114,6 +127,10 @@
     </div>
   </div>
 </footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="العودة لأعلى الصفحة">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
 
 <div class="modal" id="modal" hidden>
   <div class="modal-back" data-close></div>
