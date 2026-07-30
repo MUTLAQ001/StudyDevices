@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>توصيات الأجهزة الدراسية — جامعة القصيم</title>
+<meta name="description" content="دليل مختار لأجهزة التابلت واللابتوب المناسبة للدراسة، مقسّمة على ثلاث فئات سعرية، مع رابط شراء مباشر من المتجر الرسمي.">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>(function () {
+  try {
+    var t = localStorage.getItem('qu-devices-theme');
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+
+<div class="glow" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">جامعة القصيم · جميع التخصصات</p>
+      <h1>توصيات<br><span class="grad">الأجهزة الدراسية</span></h1>
+      <p class="lede">
+        مجموعة مختارة من أجهزة التابلت واللابتوب، مرتّبة على ثلاث فئات حسب الميزانية.
+        ولكل فئة حد أدنى من المواصفات ما ينزل عنه أي جهاز فيها — حدّد ميزانيتك وخذ الأنسب لك.
+      </p>
+      <div class="hero-stats">
+        <div class="stat"><b id="statAll">30</b><span>جهاز</span></div>
+        <div class="stat"><b id="statTablet">17</b><span>تابلت</span></div>
+        <div class="stat"><b id="statLaptop">13</b><span>لابتوب</span></div>
+        <div class="stat"><b>3</b><span>فئات</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="assets/img/cover.png" alt="" loading="eager">
+    </div>
+  </div>
+</header>
+
+<nav class="controls" id="controls">
+  <div class="wrap">
+    <div class="controls-row">
+      <div class="seg" role="tablist" aria-label="نوع الجهاز">
+        <button class="seg-btn is-on" data-type="all"    role="tab" aria-selected="true">الكل</button>
+        <button class="seg-btn"       data-type="tablet" role="tab" aria-selected="false">تابلت</button>
+        <button class="seg-btn"       data-type="laptop" role="tab" aria-selected="false">لابتوب</button>
+      </div>
+
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="q" placeholder="ابحث باسم الجهاز أو الماركة…" autocomplete="off" aria-label="بحث">
+      </div>
+
+      <button class="theme-btn" id="themeBtn" type="button" aria-pressed="false">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 1.8v2.4M12 19.8v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M1.8 12h2.4M19.8 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/>
+        </svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a6.8 6.8 0 0 0 11 11z"/>
+        </svg>
+        <span class="theme-label">وضع صباحي</span>
+      </button>
+    </div>
+
+    <div class="chips" role="group" aria-label="الفئة">
+      <button class="chip is-on" data-tier="all">كل الفئات</button>
+      <button class="chip chip-eco"  data-tier="eco">الفئة الاقتصادية</button>
+      <button class="chip chip-mid"  data-tier="mid">الفئة المتوسطة</button>
+      <button class="chip chip-high" data-tier="high">الفئة العليا</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="main">
+  <div id="results"></div>
+  <p class="empty" id="empty" hidden>ما لقينا أي جهاز يطابق بحثك.</p>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>قناة الأجهزة الدراسية</h3>
+        <p>القناة اللي طلع منها هذا الدليل — تحديثات وتوصيات أول بأول.</p>
+        <a class="tg" href="https://t.me/StudyDevices" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.7 3.4 2.9 10.6c-1.1.4-1.1 1.1-.2 1.4l4.7 1.5 1.8 5.5c.2.6.4.8.8.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.2-.4-1.8-1-1.8z"/></svg>
+          t.me/StudyDevices
+        </a>
+      </div>
+      <div>
+        <h3>القائمون على المحتوى</h3>
+        <ul class="people">
+          <li><a href="https://t.me/MUTLAQ1" target="_blank" rel="noopener">مطلق — ‎@Mutlaq1</a></li>
+          <li><a href="https://t.me/oh7w7" target="_blank" rel="noopener">نواف — ‎@Oh7w7</a></li>
+        </ul>
+        <p class="foot-cap">قنوات ذات صلة</p>
+        <ul class="people">
+          <li><a href="https://t.me/Qassim_U" target="_blank" rel="noopener">‎@Qassim_U</a></li>
+          <li><a href="https://t.me/Qassim_QU" target="_blank" rel="noopener">‎@Qassim_QU</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>تنبيه</h3>
+        <p>المحتوى قابل للتغيير والزيادة. الأسعار تقريبية وتم التحقق منها بتاريخ
+          <b id="updated"></b>، وتتغيّر عند المتاجر بدون إشعار — راجع سعر الجهاز في المتجر قبل الشراء.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-back" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="modal-x" data-close aria-label="إغلاق">&times;</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script src="assets/js/devices.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
