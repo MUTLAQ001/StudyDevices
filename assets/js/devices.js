@@ -455,7 +455,7 @@ const DEVICES = [
     highlights: ['13 بوصة', 'Apple A18 Pro', 'أرخص ماك بوك'],
     store: 'جرير',
     url: 'https://www.jarir.com/apple-macbook-neo-laptops-jpm1838.html',
-    note: 'أرخص جهاز ماك — حلّ محل ماك بوك اير M1 الموجود في الملف الأصلي. ذاكرته 8GB وتخزينه 256GB أقل من الحد الأدنى للفئة.',
+    note: 'أرخص جهاز ماك',
   },
   {
     slug: 'asus-vivobook-15',
